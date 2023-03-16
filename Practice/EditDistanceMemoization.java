@@ -19,7 +19,8 @@ class Solution {
             return dp[i][j];
         }
         if(word1.charAt(i) == word2.charAt(j)){
-            return 0+editDistance(i-1, j-1, word1, word2, dp);
+            dp[i][j] = 0+editDistance(i-1, j-1, word1, word2, dp);
+            return dp[i][j];
         }
         dp[i][j] = Math.min(1 + editDistance(i, j-1, word1, word2, dp), // insert
         Math.min(1 + editDistance(i-1, j, word1, word2, dp), // delete
